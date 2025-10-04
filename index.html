@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SkyScope — Interactive Weather</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SkyScope</div>
+    <div class="controls">
+      <input id="cityInput" type="text" placeholder="Search city (e.g., Chennai)" />
+      <button id="searchBtn">Search</button>
+      <button id="locBtn" aria-label="Detect my location" title="Detect my location">📍</button>
+      <button id="themeToggleBtn" aria-label="Toggle dark/light theme" title="Toggle Theme">🌓</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="left">
+      <div class="card weather-card" id="weatherCard">
+        <div class="weather-header">
+          <div>
+            <h1 id="placeName">—</h1>
+            <p id="dateTime">—</p>
+          </div>
+          <div class="temp-block">
+            <div id="temp">--°C</div>
+            <div id="weatherAnimation" class="weather-animation"></div>
+          </div>
+        </div>
+
+        <div class="weather-main">
+          <div class="stat"><div class="label">Feels like</div><div id="feels">--°C</div></div>
+          <div class="stat"><div class="label">Humidity</div><div id="humidity">--%</div></div>
+          <div class="stat"><div class="label">Wind</div><div id="wind">-- m/s</div></div>
+          <div class="stat"><div class="label">Chance of rain</div><div id="chance">--%</div></div>
+        </div>
+
+        <div class="extra">
+          <div><strong>Sunrise:</strong> <span id="sunrise">--:--</span></div>
+          <div><strong>Sunset:</strong> <span id="sunset">--:--</span></div>
+          <div><strong>Forecast:</strong> <span id="forecastSummary">—</span></div>
+        </div>
+
+        <div class="advice" id="advice">Allow location or search a city to get started.</div>
+      </div>
+      
+      <div class="card forecast-card" id="forecastCard">
+        <h3>Next 12 hours (3-hour steps)</h3>
+        <div id="forecastList" class="forecast-list">
+          </div>
+      </div>
+      
+      <div class="card safety-card">
+          <h3>Safety & Detailed Advice</h3>
+          <div id="tempAdviceBox" class="advice-detail">Temperature Advice: —</div>
+          <div id="rainAdviceBox" class="advice-detail">Rainfall Advice: —</div>
+          <div id="seaAdviceBox" class="advice-detail">Sea/Fishing Safety: —</div>
+      </div>
+
+    </section>
+
+    <aside class="right">
+      <div class="card chat-card">
+        <h3>Weather Assistant</h3>
+        <div id="chatWindow" class="chat-window">
+          <div class="bot-msg">Hi! I'm SkyScope's assistant. Ask me about the weather, rain, or safety tips — e.g., "Will it rain today?"</div>
+        </div>
+
+        <div class="chat-controls">
+          <input id="chatInput" type="text" placeholder="Ask the weather assistant..." />
+          <button id="chatSend">Send</button>
+        </div>
+      </div>
+
+      <div class="card aqi-card">
+        <h4>Air Quality Index (AQI)</h4>
+        <div class="aqi-display">
+          <div id="aqiValue" class="aqi-value">—</div>
+          <div id="aqiRating" class="aqi-rating">Loading...</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
